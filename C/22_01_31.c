@@ -4,23 +4,36 @@
 #define size2 10
 int main(void) {
 	 
-	// 2차원 배열 검색 및 출력
+	// 배열 랜덤함수 문제
 
-	// 배열 선언
-	int rre[size][size2] = { 0, };
-	int i=0, j=0;
+	// 배열 및 변수 선언
+	int arr[100] = { 0, };
+	int str[10] = { 0, };
+	int tmp = 0;
 
-	// 구구단을 배열에 저장
-	for (int x = 1;x<size; x++) {
-		for (int y = 1;y<size2; y++) {
-			rre[x][y] = x * y;
+	// 난수 만들고 str에 저장
+	for (int x = 0; x <= 99; x++) {
+		int i = rand() % 10;
+		arr[x] = i;
+		for (int y = 0; y < 10; y++) {
+			if (arr[x] == y) {
+				str[y]++;
+				
+			}
 		}
 	}
-	// 입력 및 출력
-	printf("알고 싶은 구구단 입력 : (예: 9 9)");
-	scanf("%d %d", &i ,&j);
-	printf("%d X %d = %d", i, j,rre[i][j]);
-
+	// 버블 정렬 
+	for (int a = 0; a <10; a++) {
+		for (int b = 0; b < 9; b++) {
+			if(str[b]>str[b+1])
+			tmp = str[b];
+			str[b] = str[b + 1];
+			str[b + 1] = tmp;
+		}
+	}
+	for (int h = 0; h < 10; h++) {
+		printf("str[%d] 카운팅 값 = %d\n",h, str[h]);
+	}
 
 	return 0;
 }
