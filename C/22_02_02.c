@@ -11,24 +11,20 @@ int get_int() {
 }
 //if문 MAX찾기
 int find_max(int x,int y) {
-	int MAX;
 	if (x > y) {
-		MAX=x;
+		return x;
 	}
-	else if (x < y) {
-		 MAX=y;
+	else  {
+		return y;
 	}
-	return MAX;
+	
 }
 int main(void){
 	int a, b;
 	a = get_int();
 	b = get_int();
 
-	int r;
-	r = find_max(a,b);
-	printf("MAX값은 %d", r);
-
-
+	printf("MAX값은 %d", find_max(a, b));
+ 
 	return 0;
 }
