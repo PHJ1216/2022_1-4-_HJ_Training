@@ -1,22 +1,29 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
+// 실수 대수 비교 함수
 
-// 1차식 계산 함수
-double fc_p(double x, double y);
+double get_bs();
 
 int main(void) {
-	double i, j;
 
-	printf("두 실수를 입력하세요 : ");
-	scanf("%lf %lf", &i, &j);
-	printf("x:%lf y:%lf f(x,y)=%lf", i, j, fc_p(i,j));
+	double i, j;
+	printf("실수를 입력하세요 : ");
+	scanf("%lf", &i);
+	printf("실수를 입력하세요 : ");
+	scanf("%lf", &j);
+	printf("더 큰 수는 %lf입니다,",get_bs(i, j));
 
 	return 0;
 }
 
-double fc_p(double x, double y) {
-	double plus = 0;
-	plus = 1.5 * x + 3.0 * y;
-
-	return plus;
+double get_bs(double x, double y) {
+	double result;
+	if (x > y) {
+		result = x;
+			return result;
+	}
+	else {
+		result = y;
+		return result;
+	}
 }
