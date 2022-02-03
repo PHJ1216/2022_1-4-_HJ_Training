@@ -1,29 +1,49 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-#include<math.h> // 제곱근 함수 파일
-// 두 점 사이의 거리 계산 함수
+#include<math.h>
+//2차 함수 근 계산
 
-double dist_2d(double a1, double a2, double b1, double b2 ); //함수 선언
+//함수 선언
+double cmt_2cha_1(double a, double b, double c);
+double cmt_2cha_2(double a, double b, double c);
 
 int main(void)
 {
-    double x1, x2, y1, y2;
-    printf("좌표 (x1, y1) 입력 : ");
-    scanf("%lf %lf", &x1, &y1);
-    printf("\n");
-    printf("좌표 (x1, y1) 입력 : ");
-    scanf("%lf %lf", &x2, &y2);
-    printf("\n");
-    printf("%lf", dist_2d(x1,x2,y1,y2));
-    return 0;
+	double x, y, z;
+	printf("이차항 계수 a 입력 : ");
+	scanf("%lf", &x);
+	printf("일차항 계수 b 입력 : ");
+	scanf("%lf", &y);
+	printf("상수항 계수 c 입력 : ");
+	scanf("%lf", &z);
+	printf("%lf  ", cmt_2cha_1(x, y, z));
+	printf("%lf", cmt_2cha_2(x, y, z));
+	return 0;
+}
+double cmt_2cha_1(double a, double b, double c) // 함수 정의 rms_p에 대한 함수
+{
+	double why = b * b - 4 * a * c;
+	double sqrt(double why);
+	double rms_p = (-b + sqrt(why))/(2*a);  //rms =근 _ 플러스
+
+	if (rms_p < 0 ) {
+		printf("근이 없습니다.");
+	}
+	else {
+		return rms_p;
+	}
 }
 
-double dist_2d(double a1, double a2, double b1, double b2) //함수 정의   (a1, b1) //  (a2, b2)
+double cmt_2cha_2(double a, double b, double c) // 함수 정의 rms_m에 대한 함수
 {
-    double y = 0;
-    double disXY;
-    disXY = ((a2 - a1) * (a2 - a1))+ ((b2 - b1) * (b2 - b1));
-    double sqrt(disXY); //제곱근 함수 disXY에 루트값 
-    return sqrt(disXY); // 반환값 diXY 루트값
+	double why = b * b - 4 * a * c;
+	double sqrt(double why);
+	double rms_m = (-b - sqrt(why)) / (2 * a);  //rms =근 _ 마이너스
 
+	if ( rms_m < 0) {
+		printf("근이 없습니다.");
+	}
+	else {
+		return rms_m;
+	}
 }
