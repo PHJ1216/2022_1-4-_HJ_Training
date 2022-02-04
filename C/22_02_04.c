@@ -1,15 +1,27 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<math.h>
-// 배열의 이름은 곧 프린터 배열과 프린터는 친구 사이
+#define SIZE 10
+
+// 1차원 배열 합 계산 함수
+int get_arr_sum(int* A, int size); //함수 선언
+
 int main(void)
 {
-	int a[10] = { 1,2,3,4,5,6 };
-	int* p = a;
-	int* q = a + 3;
-
-	printf("%d\n",*( a+1)); //a+1 a[1] a+1
-	printf("%d\n",*( p+2)); //p+2 a[2] a+2
-	printf("%d\n",*( q+3)); //q+3 a[6] a+3+3
+	int data[SIZE] = { 1,2,3,4,5,6,7,8,9,0 };
+	
+	printf("배열 요소의 합 : %d",get_arr_sum(data, SIZE)); //*A=data
 	return 0;
+
 }
+
+int get_arr_sum(int *A, int size) //함수 정의
+{
+	int sum = 0;
+	
+	for (int j = 0; j < size; j++) {
+		sum =sum+ A[j];
+	}
+	return sum;
+}
+
