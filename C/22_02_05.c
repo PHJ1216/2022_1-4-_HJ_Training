@@ -4,7 +4,7 @@
 #include<string.h>
 #include<stdlib.h>
 #define SIZE 5
-// 문자열 기초
+// 문자열 기초 문법
 
 int main(void)
 {
