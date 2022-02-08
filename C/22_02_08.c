@@ -4,27 +4,17 @@
 #include<string.h>
 #include<stdlib.h>
 
-//문자열 동일 검사 프로그램
-
+// 과도한 공백 삭제 프로그램
 int main(void) {
+    char str[100];
+    printf("텍스트를 입력하시오: ");
+    gets_s(str, 100);
 
-	char str[5] = "1234";
-	char ch[5]=" ";
-	
-	while (1) {
-		printf("비밀번호를 입력하세요 : ");
-		for (int i = 0; i < 4; i++) {
-			ch[i] = getch();
-			putch('*');
-		}
-			printf("\n");
-		if (strcmp(ch,str)==0) {
-			
-			break;
-		}
-		
-	}
-	printf("패스워드 일치!");
-
-	return 0;
+    for (int i = 0; i < 100; i++) {
+        if (str[i] == ' ' && str[i + 1] == ' ') {
+            continue;
+        }
+        printf("%c", str[i]);
+    }
+    return 0;
 }
