@@ -4,9 +4,9 @@
 #include<string.h>
 #include<stdlib.h>
 
-// ±¸Á¶Ã¼ ±âº» ¹®¹ı
+// êµ¬ì¡°ì²´ ê¸°ì´ˆ ë¬¸ë²•
 
-struct student  //±¸Á¶Ã¼ Á¤ÀÇ
+struct student  //êµ¬ì¡°ì²´ ì„ ì–¸
 {
     int number;
     char name[10];
@@ -14,7 +14,7 @@ struct student  //±¸Á¶Ã¼ Á¤ÀÇ
 };
 int main(void) {
 
-    struct student s1={24,"park",4.3}; //±¸Á¶Ã¼ º¯¼ö ¼±¾ğ
+    struct student s1={24,"park",4.3}; //êµ¬ì¡°ì²´ ë³€ìˆ˜ ì •ì˜
 
 
     return 0;
