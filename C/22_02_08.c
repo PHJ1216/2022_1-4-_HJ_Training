@@ -4,17 +4,18 @@
 #include<string.h>
 #include<stdlib.h>
 
-// 과도한 공백 삭제 프로그램
-int main(void) {
-    char str[100];
-    printf("텍스트를 입력하시오: ");
-    gets_s(str, 100);
+// 구조체 기본 문법
 
-    for (int i = 0; i < 100; i++) {
-        if (str[i] == ' ' && str[i + 1] == ' ') {
-            continue;
-        }
-        printf("%c", str[i]);
-    }
+struct student  //구조체 정의
+{
+    int number;
+    char name[10];
+    double grade;
+};
+int main(void) {
+
+    struct student s1={24,"park",4.3}; //구조체 변수 선언
+
+
     return 0;
 }
