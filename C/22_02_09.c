@@ -4,15 +4,10 @@
 #include<string.h>
 #include<stdlib.h>
 
-//구조체 예제 및 기초 문법
+//구조체 두 점 사이 거리 구하기 
 
-struct sch
-{
-    int grade;
-    char name[20];
-    double credit;
-};
-struct exers
+
+struct point
 {
     int x;
     int y;
@@ -20,24 +15,12 @@ struct exers
 };
 
 int main(void) {
-
-    printf("예제 1\n");
-    struct sch s;
-
-    s.grade = 2;
-    strcpy(s.name ,"hyeonjun"); //기본적으로 문법이 name="문자열";은 허용되지 않음. 고로 strcpy() 함수 사용해야함
-    s.credit = 3.3;
-
-    printf("%d %s %lf\n\n", s.grade, s.name, s.credit);
-
-    struct exers p = { 1,2 };
-    struct exers q = { .x = 1,.y = 2 };
-    struct exers r = p;
-    r = (struct exers){ 1,2 }; //중요한 기법 구조체 변수 선언이 종료되어도 {1,2}로 초기화 가능
-
-    printf("예제 2\n");
-    printf("p:%d , %d\n",p.x,p.y);
-    printf("p:%d , %d\n",q.x,q.y);
-    printf("p:%d , %d\n",r.x,r.y);
+    
+    struct point pt={10,10};
+    struct point pt1={20,20};
+    printf("1point 좌표 : (%d,%d)\n",pt.x,pt.y);
+    printf("2point 좌표 : (%d,%d)\n", pt1.x, pt1.y);
+    double v= sqrt((pt1.x-pt.x)*(pt1.x - pt.x)+(pt1.y - pt.y)*(pt1.y - pt.y));
+    printf("두 사이의 거리 : %lf", v);
     return 0;
 }
