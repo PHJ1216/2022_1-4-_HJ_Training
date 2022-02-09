@@ -3,24 +3,36 @@
 #include<math.h>
 #include<string.h>
 #include<stdlib.h>
+#define SIZE 3
+//
 
-//구조체 두 점 사이 거리 구하기 
 
-
-struct point
+struct school
 {
-    int x;
-    int y;
+    int num;
+    double grade;
+    char name[20];
 
 };
 
 int main(void) {
     
-    struct point pt={10,10};
-    struct point pt1={20,20};
-    printf("1point 좌표 : (%d,%d)\n",pt.x,pt.y);
-    printf("2point 좌표 : (%d,%d)\n", pt1.x, pt1.y);
-    double v= sqrt((pt1.x-pt.x)*(pt1.x - pt.x)+(pt1.y - pt.y)*(pt1.y - pt.y));
-    printf("두 사이의 거리 : %lf", v);
+    struct school list[SIZE];
+
+    for (int i = 0; i < SIZE; i++) {
+        printf("이름 : ");
+        scanf("%s", list[i].name);
+        printf("학년 : ");
+        scanf("%d", &list[i].num);
+        printf("학점 : ");
+        scanf("%lf", &list[i].grade);
+        printf("\n");
+    }
+    printf("======================================\n");
+    for (int j = 0; j < SIZE; j++) {
+        printf("%d학년 '%s'학생은 학점이 %lf입니당...  \n",list[j].num,list[j].name, list[j].grade);
+    }
+
+    printf("======================================");
     return 0;
 }
