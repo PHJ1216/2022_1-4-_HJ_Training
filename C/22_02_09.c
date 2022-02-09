@@ -5,23 +5,28 @@
 #include<stdlib.h>
 #define SIZE 3
 
-// 구조체 포인터 기초 문법
+// 구조체 활용 시간 계산 프로그램
 
-struct pointer {
-    char name[20];
-    double grade;
-    int number;
-};
+typedef struct stt {
+    int a, b, c;
+}point;
 
 int main(void) {
-    struct pointer abc;
-    struct pointer* p;
-    p = &abc;
-    printf("학년 학점 이름 순서대로 입력 : ");
-    scanf("%d %lf %s",&abc.number,&abc.grade,abc.name);
-    printf("\n");
-    printf("%d %lf %s\n", abc.number, abc.grade,  abc.name);
-    printf("%d %lf %s", p->number, p->grade,p->name);  //(*p).number,(*p).grade,(*p).name 과 동일한 문법
+    point start;
+    point end;
+    point result;
 
+    printf("시작시간(시, 분, 초)");
+    scanf("%d %d %d", &start.a, &start.b, &start.c);
+    printf("\n");
+    printf("종료시간(시, 분, 초)");
+    scanf("%d %d %d", &end.a, &end.b, &end.c);
+    printf("\n");
+    result.a =   end.a-start.a;
+    result.b =   end.b- start.b;
+    result.c =   end.c- start.c;
+
+    printf("소요시간 : %d : %d : %d", result.a, result.b, result.c);
+    
     return 0;
 }
