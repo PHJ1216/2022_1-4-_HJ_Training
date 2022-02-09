@@ -4,35 +4,34 @@
 #include<string.h>
 #include<stdlib.h>
 #define SIZE 3
-//
 
+// 구조체 함수 사용 백터 합 구하기
 
-struct school
+struct vector
 {
-    int num;
-    double grade;
-    char name[20];
-
+    double x;
+    double y;
 };
-
+struct vector get_vector_result(struct vector a, struct vector b);
 int main(void) {
     
-    struct school list[SIZE];
+    struct vector a = { 2.0,3.0 };
+    struct vector b = { 5.0,6.0 };
+    struct vector sum;
 
-    for (int i = 0; i < SIZE; i++) {
-        printf("이름 : ");
-        scanf("%s", list[i].name);
-        printf("학년 : ");
-        scanf("%d", &list[i].num);
-        printf("학점 : ");
-        scanf("%lf", &list[i].grade);
-        printf("\n");
-    }
-    printf("======================================\n");
-    for (int j = 0; j < SIZE; j++) {
-        printf("%d학년 '%s'학생은 학점이 %lf입니당...  \n",list[j].num,list[j].name, list[j].grade);
-    }
+    sum = get_vector_result( a, b);
+    printf("백터의 합은 (%f, %f)입니다.", sum.x, sum.y);
 
-    printf("======================================");
+    
     return 0;
+}
+
+struct vector get_vector_result(struct vector a, struct vector b) {
+    
+    struct vector result;
+
+    result.x=a.x + b.x;
+    result.y=a.y + b.y;
+
+    return result;
 }
