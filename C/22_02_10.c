@@ -4,34 +4,33 @@
 #include<string.h>
 #include<stdlib.h>
 
-// 텍스트 파일 복사하기 프로그램
+// 학점을 파일에 최신화 시키는 프로그램 
 
 int main(void) {
 
-	FILE* onefp;
-	FILE* cpyfp;
-	char file1[100],file2[100];
+	FILE* fp;
+	fp = fopen("texttest.txt", "a");
+	int num;
+	double grade;
+	char name[20];
+	char ch;
 	
-	printf("원본 파일 이름 : "); // 원본 파일 이름 정하기 
-	scanf("%s", file1);
-
-	printf("복사 파일 이름 : "); // 복사 파일 이름 정하기
-	scanf("%s", file2);
-
-	if ((onefp=fopen(file1,"r"))==NULL) {   //읽기 모드로 연다.
-		fprintf(stderr, "one파일을 열 수 없습니다.\n");
-		exit(1);
-	}
-	if ((cpyfp = fopen(file2, "w")) == NULL) { //쓰기 모드로 연다.
-		fprintf(stderr, "cpy파일을 열 수 없습니다.\n");
-		exit(1);
-	}
-	int c; 
-	while ((c = fgetc(onefp)) != EOF) { 
-		fputc(c, cpyfp); 
-	}
-	fclose (onefp);
-	fclose (cpyfp);
-	
+	do
+	{
+		printf("학번 : ");
+		scanf("%d",&num);
+		printf("이름 : ");
+		scanf("%s",name);
+		printf("학점 : ");
+		scanf("%lf",&grade);
+		fprintf(fp, "\n");
+		fprintf(fp, "학번 : %d\n",num );
+		fprintf(fp, "이름 : %s\n", name);
+		fprintf(fp, "학점 : %lf\n", grade);
+		printf("데이터 추가를 계속?(Y/N) : ");
+		ch = getche();
+		fprintf(fp, "=================================\n");
+	} while (ch!='n');
+	fclose(fp);
 	return 0;
 }
