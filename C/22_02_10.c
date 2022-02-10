@@ -4,23 +4,34 @@
 #include<string.h>
 #include<stdlib.h>
 
-// 파일 입출력 기초 문법 문자열 입출력하고 텍스트 저장 
+// 텍스트 파일 복사하기 프로그램
 
 int main(void) {
 
-    FILE* fp; //FILE 을 가리키는 포인터 fp 선언
-    int c;
-    char str[100];
-    fp = fopen("texttest.txt", "a"); //파일을 연 후 모드 설정 r:읽기 w:쓰기 a:추가
-    if (fp == NULL) {
-        printf("실패!");
-        exit(1);
-    }
-    do
-    {
-        gets(str);
-        fputs(str, fp);
-    } while (strlen(str)!=0);
-    fclose(fp);
-    return 0;
+	FILE* onefp;
+	FILE* cpyfp;
+	char file1[100],file2[100];
+	
+	printf("원본 파일 이름 : "); // 원본 파일 이름 정하기 
+	scanf("%s", file1);
+
+	printf("복사 파일 이름 : "); // 복사 파일 이름 정하기
+	scanf("%s", file2);
+
+	if ((onefp=fopen(file1,"r"))==NULL) {   //읽기 모드로 연다.
+		fprintf(stderr, "one파일을 열 수 없습니다.\n");
+		exit(1);
+	}
+	if ((cpyfp = fopen(file2, "w")) == NULL) { //쓰기 모드로 연다.
+		fprintf(stderr, "cpy파일을 열 수 없습니다.\n");
+		exit(1);
+	}
+	int c; 
+	while ((c = fgetc(onefp)) != EOF) { 
+		fputc(c, cpyfp); 
+	}
+	fclose (onefp);
+	fclose (cpyfp);
+	
+	return 0;
 }
