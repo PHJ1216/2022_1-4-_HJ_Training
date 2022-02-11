@@ -4,25 +4,40 @@
 #include<string.h>
 #include<stdlib.h>
 
-// 동적 배열을 난수로 채우는 프로그램
-
+// 동적 구조체 배열 포인터 활용 프로그램
+struct uni
+{
+	double grade;
+	char class[100];
+};
 int main(void) {
-	int* dm;
-	dm = (int*)malloc(1000 * sizeof(int));
-	for (int i = 0; i < 1000; i++) {
-		dm[i] = rand(); // 정수형 범위에서 난수 발생
+	
+	// 자신의 목표 강의 학점 작성 프로그램
+	struct uni *p;
+	int num=0;
+	printf("강의가 몇 개인가요? : ");
+	scanf("%d", &num);  // 동적 메모리 크기 입력
+
+	p = (struct uni*)malloc(num * sizeof(struct uni));
+	if (p == NULL) {
+		printf("메모리 할당 실패 !\n");
+		exit(1);
 	}
 
-	for (int x = 0;x<=1000;x++) {
-		for (int y = 0;y<1000;y++) {
-			if (dm[y] > dm[y + 1]) { // 버블 정렬을 이용한 최댓값 구하기
-				int tmp = dm[y];
-				dm[y] = dm[y + 1];
-				dm[y + 1] = tmp;
-			}
-		}
+	for (int i = 0; i < num; i++) { 
+		printf("강의 이름 : ");
+		scanf("%s", p[i].class);  //배열로 간주하고 문법 그대로 작성
+		printf("\n");
+		printf("강의 목표 학점 : ");
+		scanf("%lf", &p[i].grade);
+		printf("\n");
+		printf("======================================");
+		printf("\n");
 	}
-	printf("MAX : %d", dm[999]);
-	free(dm);
+
+	free(p);
+
+
+
 	return 0;
 }
