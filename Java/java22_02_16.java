@@ -1,15 +1,21 @@
 
 public class java22_02_16 {
-	// java 1+(1+2)+(1+2+3)+...+(1+2+3+...+10) 구하기
+	// java 1+(-2)+3(-4)+...(+n)총합 100이 될떄 마지막 정수 구하기
 	public static void main(String[] args) {
 
-		int sum = 0;
-		for (int i = 1; i <= 10; i++) { // 수정시 범위는 <=n 까지
-			sum+=i*(11-i);  //만약 마지막이 n이라면 11자리에 n+1을 대입하면 된다
-			System.out.println(sum);
+		int sum = 0; // 총합을 저장할 변수
+		int s = 1; // 값의 부호를 바꿔주는데 사용할 변수
+		int num = 0;
+		// 조건식의 값이 true이므로 무한반복문이 된다.
+		for (int i = 1; true; i++, s = -s) { // 매 반복마다 s의 값은 1, -1, 1, -1...  
+			num = s * i;// i와 부호(s)를 곱해서 더할 값을 구한다.
+			sum += num;
+			if (sum >= 100) // 총합이 100보다 같거나 크면 반복문을 빠져 나간다.
+				break;
 		}
-		
+		System.out.println("num=" + num);
+		System.out.println("sum=" + sum);
 
-	} // object
+	} // object	
 
 } // class
