@@ -1,39 +1,54 @@
 #파이썬 기초 문법
 
-#문자열 포매팅 %키워드 포매팅
-age=23
-height=179
-name="HyeonJun Park"
-print("My name is %s, age is %d and height is %dcm "%(name,age,height))
+#리스트  값의 집합
+oddnumber = [1, 3, 5, 7, 9]
+cafes = ['star', 'bene', 'yoger', 'friends']
+A = [1, 5, 'A', 'CC', 'B']
+listInList = [[1, 3, 5, 6, 7], cafes, oddnumber, 1, 3, 'Abc']
 
-#문자열 포매팅 .format메서드 포매팅
-age_a=23
-height_a=180
-name_a="DaeHyeon Kim"
-print("My name is {1}, age is {2} and height is {0}cm ".format(height_a,name_a,age_a))
+a = oddnumber[1:5]
+b = cafes[1:]
+c = A[:2]
+d = listInList[0][1:4] #리스트 내 리스트 접근
 
-#순서대로 하면 {}인덱스 값을 안 적어도 됨
-age_a=23
-height_a=180
-name_a="DaeHyeon Kim"
-print("My name is {}, age is {} and height is {}cm ".format(name_a,age_a,height_a))
+print(a)
+print(b)
+print(c)
+print(d)
 
-str = " Hello goorm! I study Python.  "
+#리스트 연산
 
-#문자열 메서드
-num = str.count(' ') #빈칸의 개수 #''안에 있는 문자를 카운트 공백도 포함
-print("빈칸의 개수는 %d입니다." %num)
-print("처음 등장하는 'l'의 인덱스 값은 %d입니다." %str.find('l')) 
-print("Good day에서 처음 등장하는 'y'의 인덱스 값은 %d입니다." %"Good day".index('y'))
+num1 = [1, 2, 3, 4, 5]
+num2 = [6, 7, 8, 9, 10]
 
-print("  ".join(str))#첫번째 요소를 문자열 사이사이에 삽입
-print(str.upper()) #대문자로
-print(str.lower()) #소문자로
-print(str.lstrip()) #왼쪽 공백 삭제
-print(str.rstrip()) #오른쪽 공백 삭제
-print(str.replace('Python', 'C')) #첫번째 요소에 해당하는 문자를 두번째 요소로 바꿈
-print(str.split()) #공백 기준 리스트 생성
+numbers = num1 + num2
+print(numbers)
+print(numbers * 2)  
 
-#len()메서드 길이 출력
-sentence = "I like studying Python" 
-print(len(sentence), len("goorm"))
+#리스트 수정
+
+number = [2, 4, 6, 8, 10, 1, 3, 5, 7, 9]
+
+number[4] = 100
+print(number)
+
+number[2] = "hello"
+print(number)
+
+number[0] = number[9] #인덱스 9를 인덱스 0에 대입
+print(number)
+
+number[8] = ['a', 'b', 'c'] #리스트 전체를 형태 유지하며 대입
+print(number)
+
+number[:] = [1,'a']  #요소들을 갈아치움
+print(number)  
+
+arr=[1,2,3,4,5]
+
+arr[3]=""
+print(arr)
+
+del arr[1]
+print(arr)
+
