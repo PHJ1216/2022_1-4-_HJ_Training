@@ -1,54 +1,46 @@
 #파이썬 기초 문법
 
-#리스트  값의 집합
-oddnumber = [1, 3, 5, 7, 9]
-cafes = ['star', 'bene', 'yoger', 'friends']
-A = [1, 5, 'A', 'CC', 'B']
-listInList = [[1, 3, 5, 6, 7], cafes, oddnumber, 1, 3, 'Abc']
+#리스트 삽입 메서트
+num_a = [2, 4, 6, 8, 10, 1, 3, 5, 7, 9]
+print(num_a)
 
-a = oddnumber[1:5]
-b = cafes[1:]
-c = A[:2]
-d = listInList[0][1:4] #리스트 내 리스트 접근
+num_a.insert(3, [11, 12, 13])
+print(num_a)
 
-print(a)
-print(b)
-print(c)
-print(d)
+#append와 extend의 차이
+num_a.extend(['a', 'b', 'c']) #extend()는 괄호가 풀리고 요소 대입
+print(num_a)
+num_a.append(['a', 'b', 'c']) #append()는 괄호 그대로 리스트 대입
+print(num_a)
 
-#리스트 연산
+#리스트 삭제 메서드
+num_b=[1,2,3,4,5,6,7,8,9]
+num_b.remove(3) #처음 나온 값을 삭제
+print(num_b)
 
-num1 = [1, 2, 3, 4, 5]
-num2 = [6, 7, 8, 9, 10]
+print(num_b.pop()) #뒤에 있는 거 팝!
+print(num_b)
 
-numbers = num1 + num2
-print(numbers)
-print(numbers * 2)  
+#리스트 정렬 메서드
+num_c1=[2,4,6,8]
+num_c2=[1,3,5,7]
+num_c3=num_c1+num_c2
+print(num_c3)
+num_c3.sort() #순서대로 정렬
+print(num_c3)
+num_c3.reverse() #반대로 뒤집음 말대로 리버스
+print(num_c3) 
 
-#리스트 수정
+#리스트 정보 확인 메서드
 
-number = [2, 4, 6, 8, 10, 1, 3, 5, 7, 9]
+num_d=[1,2,3,4,5,6,7,8]
+num_d.index(8) # 전달인자가 리스트에 있으면 리스트 값 반환
+print(num_d)
+print(num_d.count(2)) # 전달인자가 리스트에 몇 개 있는지 카운트
+print(len(num_d)) # 크기 출력
 
-number[4] = 100
-print(number)
+list1 = [2,5,2,0,1]
+list2 = [4,1,2]
 
-number[2] = "hello"
-print(number)
-
-number[0] = number[9] #인덱스 9를 인덱스 0에 대입
-print(number)
-
-number[8] = ['a', 'b', 'c'] #리스트 전체를 형태 유지하며 대입
-print(number)
-
-number[:] = [1,'a']  #요소들을 갈아치움
-print(number)  
-
-arr=[1,2,3,4,5]
-
-arr[3]=""
-print(arr)
-
-del arr[1]
-print(arr)
-
+list1.append(list2)
+print(list1, len(list1))
