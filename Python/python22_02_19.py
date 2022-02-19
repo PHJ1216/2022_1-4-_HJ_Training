@@ -2,46 +2,40 @@
 
 #집합(set) - 중복과 순서가 없음
 
-#문자열, 리스트, 딕셔너리, 튜플, 집합 자유로운 자료형 변환
-str = "Hello goorm!!!" #문자열 
-print(str, type(str))
+#집합 메서드
 
-s0 = set(str)           
-print(s0, type(s0))
+s1 = set([2,4,6,8,10]) 
+s2 = set([1,2,3,4,5,6,7,8])
 
-l = ['a', 'a', 'c', "goorm", "hello", 10, 30, 30] #리스트
-print(l, type(l))
+interset = s1 & s2 #교집합
+print(interset)
+print(s1.intersection(s2)) #함수 사용
+print(s1) #s1의 값이 바뀌는 것이 아님
 
-s1 = set(l) 
-print(s1, type(s1))
+uniset = s1 | s2 #합집합
+print(uniset)
+print(s1.union(s2)) #함수 사용
 
-d = {"Anna":25, "Bob": 23} #딕셔너리
-print(d, type(d))
+difset1 = s1 - s2 #어떤 집합에서 어떤 집합을 빼느냐에 따라 다른 결괏값
+difset2 = s2 - s1
+print(difset1)
+print(difset2)
 
-s2 = set(d)
-print(s2, type(s2))
+#집합 메서드 - 삽입 및 삭제
+set1 = {1, 2, 3, 4}
 
-t = (190,)              #튜플
-print(t, type(t))
+set1.add("hello")
+print(set1)
 
-s3 = set(t) 
-print(s3, type(s3))
+set1.add((1,2,3)) #add() 사용 시 튜플/문자열은 값 하나로 인식
+print(set1)
 
-#문자열, 리스트, 딕셔너리, 튜플, 집합 자료형 변환
-str = "Hello goorm!!!"
-print(str, type(str))
+set1.update(['a', 'b', 'c']) #set()과 같이 여러 값을 한 요소로 저장
+set1.update((11,12))
+print(set1)
 
-s0 = set(str) 
-print(s0, type(s0))
+set1.update("zyx") #set1.add("hello")와의 차이
+print(set1)
 
-newstr = tuple(s0)
-print(newstr, newstr[4], newstr[5:], type(newstr)) #인덱싱, 슬라이싱 가능
-
-l = [1,2,3,4,5,6,7,8]
-print(l, type(l))
-
-s1 = set(l)
-print(s1, type(s1))
-
-newlist = list(s1)
-print(newlist, newlist[4], newlist[:-5], type(newlist))
+set1.remove("hello") #하나의 값만 제거 가능
+print(set1)
