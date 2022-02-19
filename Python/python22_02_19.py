@@ -1,24 +1,47 @@
 #파이썬 기초 문법
 
-#튜플 - 리스트와 유사함 (수정할 수 없고 선언 방법 빼고는 유사)
+#집합(set) - 중복과 순서가 없음
 
-t1=('a','b','c',1,2,3)
-print(t1,t1[:4]) 
+#문자열, 리스트, 딕셔너리, 튜플, 집합 자유로운 자료형 변환
+str = "Hello goorm!!!" #문자열 
+print(str, type(str))
 
-t2='a','b','c',1,2,3  #괄호 생량 가능
-print(t2,t2[:4])
+s0 = set(str)           
+print(s0, type(s0))
 
-s1=list(set([1,2,3]))
-print(s1)
+l = ['a', 'a', 'c', "goorm", "hello", 10, 30, 30] #리스트
+print(l, type(l))
 
-t3=({'C':['c', 'c++', 'c#'],'front_end':['html','css','javascript']},{1,2,3},[1,2,3],(1,2,3),s1,3) #어떤 값도 가능
-print(t3)
+s1 = set(l) 
+print(s1, type(s1))
 
-t3[0]['edit']="anything" #중요 : 튜플 요소가 Mutable하면 수정 가능
-t3[2][2]="anything"   #리스트 크기는 변하기 않지만 대입은 가능
-print(t3)
+d = {"Anna":25, "Bob": 23} #딕셔너리
+print(d, type(d))
 
-print(t1*t3[5])
-t4='a','b','c',1,1,1,2,2,3,4,4,5
-print(t4.index(1),t4.count(1))  #메서드 사용 가능
+s2 = set(d)
+print(s2, type(s2))
 
+t = (190,)              #튜플
+print(t, type(t))
+
+s3 = set(t) 
+print(s3, type(s3))
+
+#문자열, 리스트, 딕셔너리, 튜플, 집합 자료형 변환
+str = "Hello goorm!!!"
+print(str, type(str))
+
+s0 = set(str) 
+print(s0, type(s0))
+
+newstr = tuple(s0)
+print(newstr, newstr[4], newstr[5:], type(newstr)) #인덱싱, 슬라이싱 가능
+
+l = [1,2,3,4,5,6,7,8]
+print(l, type(l))
+
+s1 = set(l)
+print(s1, type(s1))
+
+newlist = list(s1)
+print(newlist, newlist[4], newlist[:-5], type(newlist))
