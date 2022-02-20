@@ -2,46 +2,30 @@
 
 #함수 문법
 
-def num_plus(num1,num2): #간단한 예제 #함수 선언
-    return num1+num2   #return으로 값을 받음
-
-print(num_plus(10,20))
-
-
-#학생들 민증 7자리 입력하면 생년월일 나이 성별을 알려주는 함수
-
-
-def stdInfo(std_num):
-
-    #생년월일
+# 매개변수 - 가변 인자 함수 선언법 def f(x)_name(*매개변수) 언제든지 많은 변수를 대입가능
+def num_plus(*t) :
+    print(t, type(t)) #튜플인지 확인
+    total = 0
     
-    if std_num[0]==9 and std_num[1]>=0:
-        year=1900+std_num[0]*10+std_num[1]
-        month=std_num[2:4]
-        ill=std_num[4:6]
-        print("%s년 %s월 %s일"%(year,month,ill))
-    else:
-        year=2000+int(std_num[0])*10+int(std_num[1])
-        month=std_num[2:4]
-        ill=std_num[4:6]
-        print("%s년 %s월 %s일"%(year,month,ill))
-
-    #나이
-
-    now_year=2022
-    age=now_year-year+1
-    print("나이 %d"%age)
-
-    #성별
-    if (std_num[6]==2 or std_num[6]==4) :
-        gen='woman'
-        print('%s'%gen)
-    else :
-        gen='man'
-        print('%s'%gen)
+    for i in t :
+        total = total + i
     
-    return 0
+    return total
 
+print(num_plus(1, 5, 32, 3, 4, 57, 5))
 
-stdInfo_test=input("학생의 민증 앞 7자리를 입력하세요 : ")
-stdInfo(stdInfo_test)
+# 매개변수 - 키워드 매개변수 def f(x)_name(**매개변수) 딕셔너리 형식으로 사용 가능
+def func(**kwargs) :
+    print(kwargs)
+    
+num = 10
+func(apple="사과", a = num, num = 4)
+
+# 가변 인자 함수 선언법이랑 키워드 매개변수를 같이 선언 할 수 있다
+
+def func(*nums, **kwargs) :
+    print(nums)
+    print(kwargs)
+    
+num = 10
+func(1, 3, 5, 7, apple="사과", a = num,  num = 4) #정확하게 구분되어 있어야함 
