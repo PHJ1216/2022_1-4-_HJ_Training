@@ -1,39 +1,47 @@
 #파이썬 기초 문법
 
-#조건문과 제어문
-odd=0
-even=0
-odd_list=[]
-even_list=[]
-for num_count in range(10) :
-    if num_count % 2 == 0 :
-        if num_count==0:            #예외처리 0은 짝수가 아님
-            continue
-        even_list.append(num_count) 
-        even+=1                        #짝수면 even에+1    
-        
-    else :
-        odd_list.append(num_count)
-        odd+=1                         #홀수면 odd에+1
+#함수 문법
+
+def num_plus(num1,num2): #간단한 예제 #함수 선언
+    return num1+num2   #return으로 값을 받음
+
+print(num_plus(10,20))
+
+
+#학생들 민증 7자리 입력하면 생년월일 나이 성별을 알려주는 함수
+
+
+def stdInfo(std_num):
+
+    #생년월일
     
-print("짝수 갯수 : %d"%even)
-print("홀수 갯수 : %d"%odd)
-3
-print("짝수 : %s , 홀수 : %s"%(even_list,odd_list))
+    if std_num[0]==9 and std_num[1]>=0:
+        year=1900+std_num[0]*10+std_num[1]
+        month=std_num[2:4]
+        ill=std_num[4:6]
+        print("%s년 %s월 %s일"%(year,month,ill))
+    else:
+        year=2000+int(std_num[0])*10+int(std_num[1])
+        month=std_num[2:4]
+        ill=std_num[4:6]
+        print("%s년 %s월 %s일"%(year,month,ill))
 
-#연산자 and or not 활용
-input_int=int(input("2또는 3 입력 : "))
-if input_int==3 or input_int==2:
-    print("2나 3입니다.")
-else:
-    print("입력 실패")
+    #나이
 
-#요소 in 튜플/리스트/딕셔너리
+    now_year=2022
+    age=now_year-year+1
+    print("나이 %d"%age)
 
-l = [10, 20, 30, 'a', 'b', 'c', "hello"]
-dic={"apple":"red","banana":"yellow"}
+    #성별
+    if (std_num[6]==2 or std_num[6]==4) :
+        gen='woman'
+        print('%s'%gen)
+    else :
+        gen='man'
+        print('%s'%gen)
+    
+    return 0
 
-if 'apple' in dic :
-    print("요소가 존재합니다.")
-else :
-    print("요소가 존재하지 않습니다.")
+
+stdInfo_test=input("학생의 민증 앞 7자리를 입력하세요 : ")
+stdInfo(stdInfo_test)
