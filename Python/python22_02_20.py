@@ -2,30 +2,30 @@
 
 #함수 문법
 
-# 매개변수 - 가변 인자 함수 선언법 def f(x)_name(*매개변수) 언제든지 많은 변수를 대입가능 
-def num_plus(*t) :
-    print(t, type(t)) #튜플인지 확인
-    total = 0
-    
-    for i in t :
-        total = total + i
-    
-    return total
+# 반환 값 - 파이썬은 반환 값이 여러 개일 떄 자동으로 튜플로 묶음
 
-print(num_plus(1, 5, 32, 3, 4, 57, 5))
+def calculator(a, b) :
+    sum = a + b
+    sub = a - b
+    mul = a * b
+    div = a / b
+    return sum, sub, mul, div  #굳이 리스트로 안 묶어도 됨
 
-# 매개변수 - 키워드 매개변수 def f(x)_name(**매개변수) 딕셔너리 형식으로 사용 가능
-def func(**kwargs) :
-    print(kwargs)
-    
-num = 10
-func(apple="사과", a = num, num = 4)
+print(calculator(10, 2))
 
-# 가변 인자 함수 선언법이랑 키워드 매개변수를 같이 선언 할 수 있다
+# return은 반환에도 쓰이지만 정확히는 함수를 종료하는 의미가 더 큼
 
-def func(*nums, **kwargs) :
-    print(nums)
-    print(kwargs)
-    
-num = 10
-func(1, 3, 5, 7, apple="사과", a = num,  num = 4) #정확하게 구분되어 있어야함 
+def division(a, b) :
+	if b == 0 :
+		return
+	else :
+		res = a / b
+		
+	print("division")
+	return res
+
+result = division(10, 0)  #None 값으로 출력
+print(result)
+
+result = division(10, 3)
+print(result)
