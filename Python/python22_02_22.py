@@ -4,23 +4,27 @@
 
 # 파일입출력 기초 문법 
 
-'''
-f = open("python-test/py1.txt", 'r')  #파일을 열거나 읽거나 추가시 모드 r w a로 구분
-f.close()
-'''
-# 파일 읽기 메서드
 f = open("test.txt", 'w')
 for i in range(1, 11) :
-    sentence = "%dth line.\n" %i
+    sentence = "%d번째 줄입니다.\n" %i
     f.write(sentence)
 f.close()
 
+# 만약 readline으로 몇 줄이 있는지 알고 싶을 때
 a = open("test.txt", 'r')
-data = a.readlines()  #readline readlines 차이 전자는 한줄 반환 후자는 모든 줄을 리스트 반환
-print(data)
+while 1 :
+    line = a.readline()
+    if not line : break #line이 None이 되면(=false) 반복문 탈출
+    print(line)
 a.close()
 
-a = open("test.txt", 'r')
-data = a.read() #전체 문자열을 그대로 읽어들임  
-print(data)
-a.close()
+# 살짝 번외로 한정없이 입력해야할 때 아래와 같은 코드 사용
+
+list = []
+
+while 1 :
+    data = input("빈칸을 입력하면 입력을 종료합니다.")
+    if not data : break #공백일 때 break
+    list.append(data)
+
+print(list)
